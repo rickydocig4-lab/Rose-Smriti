@@ -12,36 +12,42 @@
         overflow: hidden;
         background-color: black;
         font-family: 'Inter', sans-serif;
+        color: white;
       }
       .font-romantic {
         font-family: 'Dancing Script', cursive;
       }
       @keyframes glow {
-        0%, 100% { filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.6)); }
-        50% { filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.9)); }
+        0%, 100% { filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.4)); }
+        50% { filter: drop-shadow(0 0 25px rgba(236, 72, 153, 0.8)); }
       }
       .animate-glow {
-        animation: glow 2s ease-in-out infinite;
+        animation: glow 3s ease-in-out infinite;
       }
       .drop-shadow-glow {
-        filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+        filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.6));
+      }
+      /* Ensure the app fills the screen */
+      #root {
+        height: 100vh;
+        width: 100vw;
       }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react,react-dom",
+    "react": "https://esm.sh/react@19.0.0",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react": "https://esm.sh/react@19.0.0",
     "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
     "react/jsx-dev-runtime": "https://esm.sh/react@19.0.0/jsx-dev-runtime",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react,react-dom",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>

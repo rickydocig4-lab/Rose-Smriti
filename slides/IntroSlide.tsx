@@ -6,72 +6,80 @@ import { SlideProps } from '../types.ts';
 export const IntroSlide: React.FC<SlideProps> = ({ onNext }) => {
   return (
     <SlideTransition>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center relative">
+        {/* Artistic Glowing Aura behind the rose */}
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+          transition={{ duration: 4, repeat: Infinity }}
+          className="absolute w-64 h-64 bg-red-600 rounded-full blur-[100px] -z-10"
+        />
+
         {/* Blooming Rose Animation */}
         <motion.div
-          initial={{ scale: 0.3, opacity: 0 }}
-          animate={{ scale: [0.3, 0.6, 1], opacity: 1 }}
-          transition={{ duration: 3, ease: "easeOut" }}
-          className="mb-12 relative"
+          initial={{ scale: 0.2, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 2.5, ease: "easeOut" }}
+          className="mb-10 relative"
         >
           <motion.div
             animate={{ 
-              rotate: [0, 5, -5, 0],
-              scale: [1, 1.05, 1]
+              rotate: [0, 3, -3, 0],
+              y: [0, -5, 0]
             }}
-            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-            className="text-[12rem] md:text-[16rem] leading-none drop-shadow-glow select-none"
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="text-[14rem] md:text-[18rem] leading-none drop-shadow-glow select-none"
           >
-            {/* Transitioning from bud to full rose */}
             <motion.span
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 0 }}
-              transition={{ delay: 1.5, duration: 1.5 }}
+              initial={{ opacity: 1, scale: 0.8 }}
+              animate={{ opacity: 0, scale: 1.1 }}
+              transition={{ delay: 1.8, duration: 2 }}
               className="absolute inset-0 flex items-center justify-center"
             >
               🌷
             </motion.span>
             <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5, duration: 1.5 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.8, duration: 2 }}
             >
               🌹
             </motion.span>
           </motion.div>
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="text-pink-500 text-5xl md:text-7xl font-romantic mb-6 drop-shadow-lg"
+          transition={{ delay: 2.5, duration: 1.2 }}
+          className="text-center"
         >
-          A Rose, Just for You, Smriti 🌹
-        </motion.h1>
+          <h1 className="text-white text-4xl md:text-5xl font-light tracking-widest uppercase mb-2">
+            A Rose for
+          </h1>
+          <h1 className="text-red-500 text-7xl md:text-9xl font-romantic drop-shadow-[0_0_20px_rgba(239,68,68,0.4)]">
+            Smriti
+          </h1>
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3, duration: 1.5 }}
-          className="text-white/80 space-y-4 max-w-lg text-lg italic font-light mb-12"
+          transition={{ delay: 4, duration: 1.5 }}
+          className="mt-8 text-white/60 space-y-2 max-w-md text-center italic font-light"
         >
-          <p>Some feelings are quiet.</p>
-          <p>They don’t rush. They don’t shout.</p>
-          <p>They wait for the right moment.</p>
-          <p className="font-semibold text-white">This is one of those moments.</p>
+          <p className="text-lg">"In a garden full of flowers, my eyes only find you."</p>
         </motion.div>
 
         <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 4.5, duration: 0.5 }}
-          whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 5.5, duration: 0.8 }}
+          whileHover={{ scale: 1.05, backgroundColor: "rgba(220, 38, 38, 0.9)" }}
           whileTap={{ scale: 0.95 }}
           onClick={onNext}
-          className="px-12 py-5 bg-pink-600 rounded-full text-white font-semibold text-xl shadow-xl shadow-pink-600/30 hover:shadow-pink-600/50 transition-all animate-glow"
+          className="mt-12 px-10 py-4 bg-red-700/80 backdrop-blur-md rounded-full text-white font-medium text-lg tracking-widest uppercase shadow-2xl border border-red-500/30 transition-all hover:shadow-red-600/40"
         >
-          Tap to Begin
+          Open Your Heart
         </motion.button>
       </div>
     </SlideTransition>
