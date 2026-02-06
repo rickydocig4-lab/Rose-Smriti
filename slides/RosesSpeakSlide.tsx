@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SlideTransition } from '../components/SlideTransition';
-import { SlideProps, RoseType } from '../types';
-import { ROSE_TYPES } from '../constants';
+import { SlideTransition } from '../components/SlideTransition.tsx';
+import { SlideProps, RoseType } from '../types.ts';
+import { ROSE_TYPES } from '../constants.tsx';
 
 export const RosesSpeakSlide: React.FC<SlideProps> = ({ onNext }) => {
   const [activeRose, setActiveRose] = useState<RoseType | null>(null);

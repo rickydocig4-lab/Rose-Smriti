@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { SlideTransition } from '../components/SlideTransition';
-import { SlideProps } from '../types';
+import { SlideTransition } from '../components/SlideTransition.tsx';
+import { SlideProps } from '../types.ts';
 
 export const HeartUnlockSlide: React.FC<SlideProps> = ({ onNext }) => {
   const [taps, setTaps] = useState(0);
@@ -13,8 +12,6 @@ export const HeartUnlockSlide: React.FC<SlideProps> = ({ onNext }) => {
       return () => clearTimeout(timer);
     }
   }, [taps, onNext]);
-
-  const progress = (taps / 4) * 100;
 
   return (
     <SlideTransition>

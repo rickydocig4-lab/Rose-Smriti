@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { SlideTransition } from '../components/SlideTransition';
-import { SlideProps } from '../types';
+import { SlideTransition } from '../components/SlideTransition.tsx';
+import { SlideProps } from '../types.ts';
 
 export const GrowingRoseSlide: React.FC<SlideProps> = ({ onNext }) => {
   const [taps, setTaps] = useState(0);

@@ -1,14 +1,13 @@
-
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { PetalRain } from './components/PetalRain';
-import { IntroSlide } from './slides/IntroSlide';
-import { PickPetalSlide } from './slides/PickPetalSlide';
-import { RosesSpeakSlide } from './slides/RosesSpeakSlide';
-import { HeartUnlockSlide } from './slides/HeartUnlockSlide';
-import { GiftBoxSlide } from './slides/GiftBoxSlide';
-import { GrowingRoseSlide } from './slides/GrowingRoseSlide';
-import { FinalSlide } from './slides/FinalSlide';
+import { PetalRain } from './components/PetalRain.tsx';
+import { IntroSlide } from './slides/IntroSlide.tsx';
+import { PickPetalSlide } from './slides/PickPetalSlide.tsx';
+import { RosesSpeakSlide } from './slides/RosesSpeakSlide.tsx';
+import { HeartUnlockSlide } from './slides/HeartUnlockSlide.tsx';
+import { GiftBoxSlide } from './slides/GiftBoxSlide.tsx';
+import { GrowingRoseSlide } from './slides/GrowingRoseSlide.tsx';
+import { FinalSlide } from './slides/FinalSlide.tsx';
 
 const App: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -19,13 +18,13 @@ const App: React.FC = () => {
 
   const renderSlide = () => {
     switch (currentSlide) {
-      case 0: return <IntroSlide onNext={nextSlide} />;
-      case 1: return <PickPetalSlide onNext={nextSlide} />;
-      case 2: return <RosesSpeakSlide onNext={nextSlide} />;
-      case 3: return <HeartUnlockSlide onNext={nextSlide} />;
-      case 4: return <GiftBoxSlide onNext={nextSlide} />;
-      case 5: return <GrowingRoseSlide onNext={nextSlide} />;
-      case 6: return <FinalSlide onNext={() => setCurrentSlide(0)} />;
+      case 0: return <IntroSlide key="intro" onNext={nextSlide} />;
+      case 1: return <PickPetalSlide key="pick" onNext={nextSlide} />;
+      case 2: return <RosesSpeakSlide key="roses" onNext={nextSlide} />;
+      case 3: return <HeartUnlockSlide key="heart" onNext={nextSlide} />;
+      case 4: return <GiftBoxSlide key="gift" onNext={nextSlide} />;
+      case 5: return <GrowingRoseSlide key="growing" onNext={nextSlide} />;
+      case 6: return <FinalSlide key="final" onNext={() => setCurrentSlide(0)} />;
       default: return null;
     }
   };
@@ -34,9 +33,7 @@ const App: React.FC = () => {
     <main className="bg-black text-white min-h-screen relative overflow-hidden">
       <PetalRain />
       <AnimatePresence mode="wait">
-        <div key={currentSlide}>
-          {renderSlide()}
-        </div>
+        {renderSlide()}
       </AnimatePresence>
     </main>
   );

@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SlideTransition } from '../components/SlideTransition';
-import { SlideProps } from '../types';
-import { PETAL_QUOTES } from '../constants';
+import { SlideTransition } from '../components/SlideTransition.tsx';
+import { SlideProps } from '../types.ts';
+import { PETAL_QUOTES } from '../constants.tsx';
 
 export const PickPetalSlide: React.FC<SlideProps> = ({ onNext }) => {
   const [selectedQuote, setSelectedQuote] = useState<string | null>(null);
@@ -30,7 +29,7 @@ export const PickPetalSlide: React.FC<SlideProps> = ({ onNext }) => {
               transition={{ repeat: Infinity, duration: 2 + Math.random(), ease: "easeInOut" }}
             >
               <svg className="w-16 h-16 drop-shadow-glow" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                <path d="M12,2 C12,2 4,10 4,15 C4,19 7,22 12,22 C17,22 20,19 20,15 C20,10 12,2 12,2 Z" />
               </svg>
             </motion.div>
           </motion.div>
@@ -45,11 +44,11 @@ export const PickPetalSlide: React.FC<SlideProps> = ({ onNext }) => {
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             className="fixed inset-0 flex items-center justify-center p-6 z-50 pointer-events-none"
           >
-            <div className="bg-pink-900/40 backdrop-blur-md border border-pink-500/30 p-8 rounded-3xl max-w-sm w-full text-center shadow-2xl pointer-events-auto">
+            <div className="bg-pink-900/60 backdrop-blur-xl border border-pink-500/30 p-8 rounded-3xl max-w-sm w-full text-center shadow-2xl pointer-events-auto">
               <p className="text-white text-2xl font-romantic italic mb-6">"{selectedQuote}"</p>
               <button 
                 onClick={() => setSelectedQuote(null)}
-                className="text-pink-300 text-sm underline"
+                className="px-6 py-2 bg-pink-500/20 hover:bg-pink-500/40 rounded-full text-pink-300 text-sm transition-colors"
               >
                 Close
               </button>

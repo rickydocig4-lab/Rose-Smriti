@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +14,7 @@
         font-family: 'Inter', sans-serif;
       }
       .font-romantic {
-        font-family: 'Dancing+Script', cursive;
+        font-family: 'Dancing Script', cursive;
       }
       @keyframes glow {
         0%, 100% { filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.6)); }
@@ -24,19 +23,27 @@
       .animate-glow {
         animation: glow 2s ease-in-out infinite;
       }
+      .drop-shadow-glow {
+        filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+      }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "framer-motion": "https://esm.sh/framer-motion@^12.33.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react,react-dom",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react": "https://esm.sh/react@19.0.0",
+    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime",
+    "react/jsx-dev-runtime": "https://esm.sh/react@19.0.0/jsx-dev-runtime",
     "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>

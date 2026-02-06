@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SlideTransition } from '../components/SlideTransition';
-import { SlideProps } from '../types';
+import { SlideTransition } from '../components/SlideTransition.tsx';
+import { SlideProps } from '../types.ts';
 
 export const FinalSlide: React.FC<SlideProps> = ({ onNext }) => {
   return (

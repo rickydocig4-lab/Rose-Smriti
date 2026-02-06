@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { SlideTransition } from '../components/SlideTransition';
-import { SlideProps } from '../types';
+import { SlideTransition } from '../components/SlideTransition.tsx';
+import { SlideProps } from '../types.ts';
 
 export const GiftBoxSlide: React.FC<SlideProps> = ({ onNext }) => {
   const [isOpening, setIsOpening] = useState(false);
