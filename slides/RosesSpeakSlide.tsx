@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { SlideTransition } from '../components/SlideTransition.tsx';
 import { SlideProps, RoseType } from '../types.ts';
 import { ROSE_TYPES } from '../constants.tsx';
@@ -14,40 +13,30 @@ export const RosesSpeakSlide: React.FC<SlideProps> = ({ onNext }) => {
 
       <div className="flex flex-wrap justify-center gap-6 mb-16">
         {ROSE_TYPES.map((rose) => (
-          <motion.button
+          <button
             key={rose.id}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
             onClick={() => setActiveRose(rose)}
-            className={`w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-4xl transition-all hover:bg-white/10 hover:border-pink-500/50 shadow-lg ${rose.color}`}
+            className={`w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-4xl transition-all hover:bg-white/10 hover:scale-110 active:scale-90 shadow-lg ${rose.color} ${activeRose?.id === rose.id ? 'ring-2 ring-pink-500' : ''}`}
           >
             {rose.emoji}
-          </motion.button>
+          </button>
         ))}
       </div>
 
-      <div className="h-32 flex items-center justify-center max-w-md">
-        <AnimatePresence mode="wait">
-          {activeRose ? (
-            <motion.div
-              key={activeRose.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="text-center"
-            >
-              <h3 className={`text-xl font-bold mb-2 ${activeRose.color}`}>{activeRose.name} – {activeRose.meaning}</h3>
-              <p className="italic text-white/90">"{activeRose.quote}"</p>
-            </motion.div>
-          ) : (
-            <p className="text-white/30 italic">Tap a rose to hear its whisper...</p>
-          )}
-        </AnimatePresence>
+      <div className="h-32 flex items-center justify-center max-w-md w-full">
+        {activeRose ? (
+          <div className="text-center fade-in">
+            <h3 className={`text-xl font-bold mb-2 ${activeRose.color}`}>{activeRose.name} – {activeRose.meaning}</h3>
+            <p className="italic text-white/90">"{activeRose.quote}"</p>
+          </div>
+        ) : (
+          <p className="text-white/30 italic">Tap a rose to hear its whisper...</p>
+        )}
       </div>
 
       <button
         onClick={onNext}
-        className="mt-12 px-12 py-4 bg-pink-500 rounded-full text-white font-semibold animate-pulse shadow-lg shadow-pink-500/40"
+        className="mt-12 px-12 py-4 bg-pink-500 rounded-full text-white font-semibold shadow-lg shadow-pink-500/40 transition-all hover:scale-105 active:scale-95"
       >
         Continue
       </button>

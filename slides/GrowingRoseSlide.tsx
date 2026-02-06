@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { SlideTransition } from '../components/SlideTransition.tsx';
 import { SlideProps } from '../types.ts';
 
@@ -18,36 +17,24 @@ export const GrowingRoseSlide: React.FC<SlideProps> = ({ onNext }) => {
       <div className="relative w-full max-w-xs flex flex-col items-center">
         <div className="h-64 flex items-end justify-center mb-12">
           {taps === 0 && (
-            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="text-4xl">🌱</motion.div>
+            <div className="text-4xl fade-in">🌱</div>
           )}
           {taps === 1 && (
-            <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} className="text-6xl">🌷</motion.div>
+            <div className="text-6xl fade-in">🌷</div>
           )}
           {taps >= 2 && (
-            <motion.div 
-              initial={{ scale: 0.5, opacity: 0 }} 
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1 }}
-              className="text-9xl drop-shadow-glow"
-            >
-              🌹
-            </motion.div>
+            <div className="text-9xl glow-red animate-bloom">🌹</div>
           )}
         </div>
 
-        <motion.button
-          whileTap={{ scale: 0.8 }}
+        <button
           onClick={() => taps < 3 && setTaps(taps + 1)}
-          className="w-20 h-20 bg-pink-500/20 rounded-full flex items-center justify-center border border-pink-500/40 shadow-xl"
+          className="w-20 h-20 bg-pink-500/20 rounded-full flex items-center justify-center border border-pink-500/40 shadow-xl transition-transform hover:scale-110 active:scale-90"
         >
-          <motion.span
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="text-4xl"
-          >
+          <span className="text-4xl animate-pulse-custom">
             ❤️
-          </motion.span>
-        </motion.button>
+          </span>
+        </button>
         
         <p className="mt-8 text-white/80 animate-pulse">
           {taps === 3 ? "It's beautiful, just like you..." : "Tap the heart to bloom ❤️"}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { SlideTransition } from '../components/SlideTransition.tsx';
 import { SlideProps } from '../types.ts';
 
@@ -30,7 +29,7 @@ export const HeartUnlockSlide: React.FC<SlideProps> = ({ onNext }) => {
             stroke="rgba(255,255,255,0.1)"
             strokeWidth="8"
           />
-          <motion.circle
+          <circle
             cx="128"
             cy="128"
             r="120"
@@ -38,24 +37,18 @@ export const HeartUnlockSlide: React.FC<SlideProps> = ({ onNext }) => {
             stroke="white"
             strokeWidth="8"
             strokeDasharray="753.98"
-            animate={{ strokeDashoffset: 753.98 - (753.98 * taps) / 4 }}
-            transition={{ duration: 0.5 }}
+            strokeDashoffset={753.98 - (753.98 * taps) / 4}
+            style={{ transition: 'stroke-dashoffset 0.5s ease-out' }}
             strokeLinecap="round"
           />
         </svg>
 
-        <motion.button
-          whileTap={{ scale: 0.8 }}
+        <button
           onClick={() => taps < 4 && setTaps(taps + 1)}
-          className="z-10 text-pink-500 text-8xl focus:outline-none drop-shadow-pink"
+          className="z-10 text-pink-500 text-8xl focus:outline-none transition-transform hover:scale-110 active:scale-90 animate-pulse-custom"
         >
-          <motion.div
-            animate={{ scale: [1, 1.1, 1] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            ❤️
-          </motion.div>
-        </motion.button>
+          ❤️
+        </button>
       </div>
 
       <div className="absolute bottom-12 text-center">
